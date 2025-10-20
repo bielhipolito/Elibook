@@ -100,9 +100,10 @@ async function carregarLivros() {
     const item = document.createElement("li");
     item.textContent = `${livro.titulo} - ${livro.autor} (${livro.ano})`;
     lista.appendChild(item);
+// Chama a função ao carregar a página
+window.onload = carregarLivros;
   });
 }
 
-// Chama a função ao carregar a página
-window.onload = carregarLivros;
+
 
