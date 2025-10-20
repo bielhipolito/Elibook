@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Início - Livros Pendentes</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+    <header class="header">
+        <h1 class="header-title">Elibook</h1>
+        <div class="header-search">
+        <input type="text" id="loan-search" placeholder="Pesquisar...">
+        </div>
+        <nav>
+        <ul class="nav-menu">
+        <li><a href="home.html">Início</a></li>
+        <li><a href="index.html">Empréstimos</a></li>
+        <li><a href="manage-books.html">Cadastrar Livro</a></li>
+        <li><a href="manage-students.html">Cadastrar Aluno</a></li>
+        <li><a href="#" id="logout-link" class="logout-button">Sair</a></li>
+        </ul>
+        </nav>
+        </header>
+ 
+    <main class="main-content">
+<section id="pending-loans" class="card">
+<h2 class="card-title">Livros Pendentes</h2>
+<p>Livros que já passaram da data de devolução.</p>
+<table class="data-table">
+<thead>
+<tr>
+<th>Livro</th>
+<th>Aluno(a)</th>
+<th>Data do Empréstimo</th>
+<th>Data de Devolução</th>
+<th>Status</th>
+<th>Dias Atrasado</th> <!-- Nova coluna -->
+</tr>
+</thead>
+<tbody id="pending-loans-table-body">
+<!-- Conteúdo será gerado via JavaScript -->
+</tbody>
+</table>
+</section>
+</main>
+ 
+    <script src="app.js"></script>
+<script src="home.js"></script>
+</body>
+</html>
+
+<ul id="lista-livros"></ul>
+<script src="home.js"></script>

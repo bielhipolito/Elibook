@@ -1,0 +1,424 @@
+/* Estilos Gerais */body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Estilo para a página de Login e Cadastro */.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    width: 350px;
+}
+.login-title {
+    color: #005f73;
+    margin-bottom: 20px;
+}
+/* Estilos de Formulário (usados no login e no cadastro) */.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */}
+.submit-button {
+    background-color: #6c7472;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+.submit-button:hover {
+    background-color: #1e2322;
+}
+.login-link {
+    margin-top: 15px;
+}
+.login-link a {
+    color: #0f444e;
+    text-decoration: none;
+    font-weight: bold;
+}
+.login-link a:hover {
+    text-decoration: underline;
+}
+/* Cabeçalho */
+.header {
+    background-color: #005f73;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Estilo para o contêiner da pesquisa no cabeçalho */
+.header-search {
+    flex-grow: 1; /* Permite que o elemento cresça e ocupe o espaço disponível */
+    margin: 0 20px;
+    max-width: 400px;
+}
+ 
+/* Estilo para a barra de pesquisa */
+.header-search input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+ 
+/* Garante que o menu de navegação não seja afetado pelo Flexbox */
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+ 
+.nav-menu li {
+    margin-left: 10px; /* Reduz a margem entre os itens do menu */
+}
+ 
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 0.9em; /* Opcional: diminui o tamanho da fonte */
+}
+.nav-menu a:hover {
+    color: #ffd166;
+}
+.logout-button {
+    background-color: #ef476f;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.logout-button:hover {
+    background-color: #d13054;
+}
+/* Conteúdo principal (usado na página principal) */.main-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    gap: 20px;
+    flex: 1; /* Permite que o main-content ocupe o espaço restante */}
+/* Cards (Empréstimos e Formulário) */.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.card-title {
+    color: #1d3135;
+    margin-top: 0;
+    border-bottom: 2px solid #1d3135;
+    padding-bottom: 10px;
+}
+/* Tabela de empréstimos */.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+.data-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.return-button {
+    background-color: #7a7879;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.return-button:hover {
+    background-color: #050404;
+}
+/* Formulário de empréstimo (usado na página principal) */.loan-form {
+    display: flex;
+    flex-direction: column;
+}
+.loan-form .form-group input {
+    width: calc(100% - 22px);
+}
+/* Estilos para o status do aluno */
+.status-pending {
+    font-weight: bold;
+    color: #ef476f; /* Vermelho */
+}
+ 
+.status-clear {
+    font-weight: bold;
+    color: #30d50f; /* verde */
+}
+/* Estilos para o status do aluno */
+
+.status-pending {
+
+    font-weight: bold;
+
+    color: #ef476f; /* Vermelho */
+
+}
+ 
+.status-clear {
+
+    font-weight: bold;
+
+    color: #06d6a0; /* Verde */
+
+}
+ 
+/* Estilo para status de empréstimo atrasado */
+
+.status-pending-loan {
+
+    font-weight: bold;
+
+    color: #ef476f; /* Vermelho */
+
+}
+/* Estilo do Modal */
+
+.modal {
+
+    display: none; /* Oculto por padrão */
+
+    position: fixed;
+
+    z-index: 1; /* Fica por cima de tudo */
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: auto;
+
+    background-color: rgba(0,0,0,0.4);
+
+    padding-top: 60px;
+
+}
+ 
+.modal-content {
+
+    background-color: #fefefe;
+
+    margin: 5% auto;
+
+    padding: 20px;
+
+    border: 1px solid #888;
+
+    width: 80%;
+
+    max-width: 500px;
+
+    border-radius: 8px;
+
+    position: relative;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+ 
+.close-button {
+
+    color: #aaa;
+
+    float: right;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+ 
+.close-button:hover,
+
+.close-button:focus {
+
+    color: black;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+}
+ 
+.modal-title {
+
+    color: #005f73;
+
+    border-bottom: 2px solid #005f73;
+
+    padding-bottom: 10px;
+
+    margin-top: 0;
+
+}
+
+ 
+/* Contêiner para o campo de senha e o ícone */
+
+.password-container {
+
+    position: relative;
+
+    width: 100%;
+/* Estilo existente */
+
+.loans-container {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    align-items: flex-start;
+
+}
+ 
+/* Garante que as seções de card tenham largura flexível */
+
+.loans-container .card {
+
+    flex: 1;
+
+    min-width: 300px;
+
+}
+ 
+/* Novo estilo para o contêiner da tabela */
+
+.table-container {
+
+    width: 100%; /* Ocupa a largura total do seu card pai */
+
+    overflow-x: auto; /* Adiciona a barra de rolagem horizontal se necessário */
+
+}
+ 
+/* Garante que a tabela se ajuste ao seu contêiner */
+
+.data-table {
+
+    width: 100%;
+
+    /* Outros estilos de tabela já definidos */
+
+}
+ 
+/* Quebra de linha para o conteúdo das células */
+
+.data-table td, .data-table th {
+
+    word-wrap: break-word; /* Permite a quebra de palavras longas */
+
+    overflow-wrap: break-word;
+
+    min-width: 100px; /* Define uma largura mínima para evitar que as colunas fiquem muito estreitas */
+
+}
+
+}
+ 
+.password-container input {
+
+    width: calc(100% - 40px); /* Deixa espaço para o ícone */
+
+}
+ 
+.password-toggle-icon {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 10px;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    color: #888;
+
+}
+ 
+/* Estilo para a mensagem de validação de senha */
+
+.password-validation-message {
+
+    font-size: 0.9em;
+
+    margin-top: 5px;
+
+    display: block;
+
+}
+ 
+.password-validation-message.valid {
+
+    color: #06d6a0; /* Verde */
+
+}
+ 
+.password-validation-message.invalid {
+
+    color: #ef476f; /* Vermelho */
+
+}
+/* Estilo para a barra de pesquisa */
+.search-container {
+    margin-bottom: 20px;
+}
+ 
+.search-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+} 
