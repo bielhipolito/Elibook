@@ -1,20 +1,22 @@
-/* Estilos Gerais */body {
+/* Estilos Gerais */
+body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-color: #bbb6b6;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #252222;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-/* Estilo para a página de Login e Cadastro */.login-page {
+/* Estilo para a página de Login e Cadastro */
+.login-page {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .login-container {
-    background-color: white;
+    background-color: hsl(0, 2%, 55%);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -22,10 +24,11 @@
     width: 350px;
 }
 .login-title {
-    color: #005f73;
+    color: #3c3a3a;
     margin-bottom: 20px;
 }
-/* Estilos de Formulário (usados no login e no cadastro) */.form-group {
+/* Estilos de Formulário (usados no login e no cadastro) */
+.form-group {
     margin-bottom: 20px;
     text-align: left;
 }
@@ -37,12 +40,13 @@
 .form-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #1b1919;
     border-radius: 4px;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura */}
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
 .submit-button {
-    background-color: #6c7472;
-    color: white;
+    background-color: #3a3939;
+    color: rgb(146, 142, 142);
     border: none;
     padding: 12px 20px;
     border-radius: 4px;
@@ -59,7 +63,7 @@
     margin-top: 15px;
 }
 .login-link a {
-    color: #0f444e;
+    color: #4d499f;
     text-decoration: none;
     font-weight: bold;
 }
@@ -68,7 +72,7 @@
 }
 /* Cabeçalho */
 .header {
-    background-color: #005f73;
+    background-color: #525a5b;
     color: white;
     padding: 20px;
     display: flex;
@@ -106,43 +110,47 @@
 }
  
 .nav-menu a {
-    color: white;
+    color: rgb(129, 126, 126);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
     font-size: 0.9em; /* Opcional: diminui o tamanho da fonte */
 }
 .nav-menu a:hover {
-    color: #ffd166;
+    color: #acaba7;
 }
 .logout-button {
-    background-color: #ef476f;
+    background-color: #bb143b;
     padding: 8px 12px;
     border-radius: 4px;
 }
 .logout-button:hover {
     background-color: #d13054;
 }
-/* Conteúdo principal (usado na página principal) */.main-content {
+/* Conteúdo principal (usado na página principal) */
+.main-content {
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
     display: grid;
     gap: 20px;
-    flex: 1; /* Permite que o main-content ocupe o espaço restante */}
-/* Cards (Empréstimos e Formulário) */.card {
+    flex: 1; /* Permite que o main-content ocupe o espaço restante */
+}
+/* Cards (Empréstimos e Formulário) */
+.card {
     background-color: white;
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 .card-title {
-    color: #1d3135;
+    color: #474b4b;
     margin-top: 0;
-    border-bottom: 2px solid #1d3135;
+    border-bottom: 2px solid #43494a;
     padding-bottom: 10px;
 }
-/* Tabela de empréstimos */.data-table {
+/* Tabela de empréstimos */
+.data-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 30px;
@@ -171,7 +179,8 @@
 .return-button:hover {
     background-color: #050404;
 }
-/* Formulário de empréstimo (usado na página principal) */.loan-form {
+/* Formulário de empréstimo (usado na página principal) */
+.loan-form {
     display: flex;
     flex-direction: column;
 }
@@ -189,226 +198,132 @@
     color: #30d50f; /* verde */
 }
 /* Estilos para o status do aluno */
-
 .status-pending {
-
     font-weight: bold;
-
-    color: #ef476f; /* Vermelho */
-
+    color: #be1139; /* Vermelho */
 }
  
 .status-clear {
-
     font-weight: bold;
-
-    color: #06d6a0; /* Verde */
-
+    color: #0b9912; /* Verde */
 }
  
 /* Estilo para status de empréstimo atrasado */
-
 .status-pending-loan {
-
     font-weight: bold;
-
-    color: #ef476f; /* Vermelho */
-
+    color: #e31041; /* Vermelho */
 }
 /* Estilo do Modal */
-
 .modal {
-
     display: none; /* Oculto por padrão */
-
     position: fixed;
-
     z-index: 1; /* Fica por cima de tudo */
-
     left: 0;
-
     top: 0;
-
     width: 100%;
-
     height: 100%;
-
     overflow: auto;
-
     background-color: rgba(0,0,0,0.4);
-
     padding-top: 60px;
-
 }
  
 .modal-content {
-
     background-color: #fefefe;
-
     margin: 5% auto;
-
     padding: 20px;
-
     border: 1px solid #888;
-
     width: 80%;
-
     max-width: 500px;
-
     border-radius: 8px;
-
     position: relative;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
 }
  
 .close-button {
-
     color: #aaa;
-
     float: right;
-
     font-size: 28px;
-
     font-weight: bold;
-
 }
  
 .close-button:hover,
-
 .close-button:focus {
-
     color: black;
-
     text-decoration: none;
-
     cursor: pointer;
-
 }
  
 .modal-title {
-
-    color: #005f73;
-
-    border-bottom: 2px solid #005f73;
-
+    color: #5d6364;
+    border-bottom: 2px solid #5a6061;
     padding-bottom: 10px;
-
     margin-top: 0;
-
 }
-
  
 /* Contêiner para o campo de senha e o ícone */
-
 .password-container {
-
     position: relative;
-
     width: 100%;
-/* Estilo existente */
+}
 
+/* NOVO CÓDIGO AQUI: Ajusta o layout dos cards de empréstimo */
 .loans-container {
-
     display: flex;
-
-    gap: 20px;
-
-    flex-wrap: wrap;
-
-    align-items: flex-start;
-
+    flex-direction: column; /* Alinha os itens um abaixo do outro */
+    gap: 20px; /* Espaço entre os cards */
 }
- 
-/* Garante que as seções de card tenham largura flexível */
-
 .loans-container .card {
-
-    flex: 1;
-
-    min-width: 300px;
-
+    width: 100%; /* Garante que os cards ocupem a largura total */
 }
- 
-/* Novo estilo para o contêiner da tabela */
+/* FIM DO NOVO CÓDIGO */
 
 .table-container {
-
     width: 100%; /* Ocupa a largura total do seu card pai */
-
+    max-height: 400px; /* Altura máxima para ativar a rolagem */
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
     overflow-x: auto; /* Adiciona a barra de rolagem horizontal se necessário */
-
+    padding-right: 10px; /* Espaço para a barra de rolagem */
 }
  
 /* Garante que a tabela se ajuste ao seu contêiner */
-
 .data-table {
-
     width: 100%;
-
     /* Outros estilos de tabela já definidos */
-
 }
  
 /* Quebra de linha para o conteúdo das células */
-
 .data-table td, .data-table th {
-
     word-wrap: break-word; /* Permite a quebra de palavras longas */
-
     overflow-wrap: break-word;
-
     min-width: 100px; /* Define uma largura mínima para evitar que as colunas fiquem muito estreitas */
-
-}
-
 }
  
 .password-container input {
-
     width: calc(100% - 40px); /* Deixa espaço para o ícone */
-
 }
  
 .password-toggle-icon {
-
     position: absolute;
-
     top: 50%;
-
     right: 10px;
-
     transform: translateY(-50%);
-
     cursor: pointer;
-
     color: #888;
-
 }
  
 /* Estilo para a mensagem de validação de senha */
-
 .password-validation-message {
-
     font-size: 0.9em;
-
     margin-top: 5px;
-
     display: block;
-
 }
  
 .password-validation-message.valid {
-
     color: #06d6a0; /* Verde */
-
 }
  
 .password-validation-message.invalid {
-
     color: #ef476f; /* Vermelho */
-
 }
 /* Estilo para a barra de pesquisa */
 .search-container {
@@ -421,4 +336,205 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1em;
-} 
+}
+.header-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centraliza o texto */
+    line-height: 1.2;
+  }
+  
+  .header-title {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .header-subtitle {
+    font-size: 1rem;
+    color: #ccc;
+    margin: 0;
+    font-weight: 400;
+  }
+  .nav-menu a {
+    font-size: 1.1rem; /* aumenta só o texto */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px; /* espaço entre o ícone e o texto */
+  }
+  .nav-menu a {
+    font-size: 1.15rem; /* aumenta o texto */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* espaço entre ícone e texto */
+    color: #000; /* deixa o texto preto */
+  }
+  
+  .nav-menu a i {
+    font-size: 1.2rem;
+    color: #000; /* ícones pretos */
+    transition: transform 0.2s, color 0.2s;
+  }
+  
+  .nav-menu a:hover i {
+    transform: scale(1.2); /* animação suave */
+    color: #333; /* um pretinho mais escuro ao passar o mouse */
+  }
+/* ======= CABEÇALHO ======= */
+.header {
+    background-color: #4b5254;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .header-title-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  
+  .header-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .header-subtitle {
+    font-size: 0.9rem;
+    color: #dcdcdc;
+    margin: 0;
+  }
+  
+  .header-search input {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    width: 200px;
+  }
+  
+  /* ======= MENU ======= */
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  
+  .nav-menu a:hover {
+    color: #d0d0d0;
+  }
+  
+  .nav-menu a.active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  
+  .logout-button {
+    background-color: #b30032;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .logout-button:hover {
+    background-color: #8b0027;
+  }
+  
+  /* ======= CONTEÚDO ======= */
+  .main-content {
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    text-transform: uppercase;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .form-group input {
+    padding: 6px;
+    border: 1px solid #999;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    background-color: #4b5254;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #3b3f41;
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .data-table th, .data-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .data-table th {
+    background-color: #f4f4f4;
+  }
