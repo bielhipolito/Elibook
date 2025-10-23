@@ -1,99 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cadastrar Aluno - Biblioteca</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- ... (cabeçalho e meta tags) ... -->
 <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabaseClient.js"></script>
 </head>
 <body>
- 
-    <header class="header">
-        <div class="header-title-group">
-            <h1 class="header-title">Elibook</h1>
-            <p class="header-subtitle">Sala de Leitura</p>
-          </div>          
-        <div class="header-search">
-        <input type="text" id="loan-search" placeholder="Pesquisar...">
-        </div>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="home.html"><i class="fa-regular fa-house"></i> Início</a></li>
-                <li><a href="index.html"><i class="fa-regular fa-book"></i> Empréstimos</a></li>
-                <li><a href="manage-books.html"><i class="fa-regular fa-book-open"></i> Cadastrar Livro</a></li>
-                <li><a href="manage-students.html"><i class="fa-regular fa-user"></i> Cadastrar Aluno</a></li>
-                <li><a href="#" id="logout-link" class="logout-button"><i class="fa-regular fa-right-from-bracket"></i> Sair</a></li>
-              </ul>              
-        </nav>
-        </header>
-
-<main class="main-content">
-    <section class="card">
-    <h2 class="card-title">Cadastro de Alunos</h2>
-    <form class="student-form">
-    <div class="form-group">
-    <label for="student-name">Nome do Aluno:</label>
-    <input type="text" id="student-name" name="student-name" required>
-    </div>
-    <div class="form-group">
-    <label for="student-class">Turma:</label>
-    <input type="text" id="student-class" name="student-class" maxlength="2" minlength="2" required>
-    </div>
-    <div class="form-group">
-    <label for="student-ra">RA:</label>
-    <input type="text" id="student-ra" name="student-ra" maxlength="14" minlength="14" required>
-    </div>
-    <button type="submit" class="submit-button">Cadastrar Aluno</button>
-    </form>
-    </section>
-     
-            <section class="card">
-    <h2 class="card-title">Alunos Cadastrados</h2>
-    <table class="data-table">
-    <thead>
-    <tr>
-    <th>Nome</th>
-    <th>Turma</th>
-    <th>RA</th>
-    <th>Status</th>
-    <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody id="students-table-body">
-    <!-- Conteúdo será gerado via JavaScript -->
-    </tbody>
-    </table>
-    </section>
-    </main>
-     
-        <!-- Modal de Edição de Aluno -->
-    <div id="edit-student-modal" class="modal">
-    <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <h2 class="modal-title">Editar Aluno</h2>
-    <form id="edit-student-form">
-    <div class="form-group">
-    <label for="edit-student-name">Nome:</label>
-    <input type="text" id="edit-student-name" name="edit-student-name" required>
-    </div>
-    <div class="form-group">
-    <label for="edit-student-class">Turma:</label>
-    <input type="text" id="edit-student-class" name="edit-student-class" maxlength="2" minlength="2" required>
-    </div>
-    <div class="form-group">
-    <label for="edit-student-ra">RA:</label>
-    <input type="text" id="edit-student-ra" name="edit-student-ra" maxlength="14" minlength="14" required>
-    </div>
-    <input type="hidden" id="edit-student-index">
-    <button type="submit" class="submit-button">Salvar Alterações</button>
-    </form>
-    </div>
-    </div>
-        
-</main>
- 
-    <script src="app.js"></script>
-<script src="manage-students.js"></script>
+    <!-- ... (conteúdo ) ... -->
+    <script type="module" src="app.js"></script>
+    <script type="module" src="manage-students.js"></script>
 </body>
 </html>
