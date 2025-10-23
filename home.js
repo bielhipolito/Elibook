@@ -1,3 +1,5 @@
+import { supabase } from './supabaseClient.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const pendingLoansTableBody = document.getElementById('pending-loans-table-body');
     const loanSearchInput = document.getElementById('loan-search');
@@ -13,50 +15,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadPendingLoans();
 
-    function loadPendingLoans(searchTerm = '') {
-        const loans = JSON.parse(localStorage.getItem('loans')) || [];
-        displayPendingLoans(loans, searchTerm);
-    }
+    // --- Funções CRUD com Supabase ---
 
-    function parseDate(dateString) {
-        // Tenta converter tanto "2025-10-14" quanto "14/10/2025"
-        if (!dateString) return null;
-        if (dateString.includes('-')) return new Date(dateString + 'T00:00:00');
-        if (dateString.includes('/')) {
-            const [day, month, year] = dateString.split('/');
-            return new Date(`${year}-${month}-${day}T00:00:00`);
+    async function loadPendingLoans(searchTerm = '') {
+        // Busca todos os empréstimos ativos (returned = false), juntando com os dados do livro e do aluno
+        let query = supabase
+            .from('loans')
+            .select(`
+                id,
+                loan_date,
+                due_date,
+                books (title),
+                students (name, ra)
+            `)
+            .eq('returned', false);
+
+        const { data: loans, error } = await query;
+
+        if (error) {
+            console.error('Erro ao carregar empréstimos pendentes:', error);
+            pendingLoansTableBody.innerHTML = '<tr><td colspan="6">Erro ao carregar empréstimos.</td></tr>';
+            return;
         }
-        return new Date(dateString);
-    }
 
-    function displayPendingLoans(loans, searchTerm) {
-        pendingLoansTableBody.innerHTML = '';
-
+        // Filtra os empréstimos que estão atrasados
         const today = new Date();
-        const filteredLoans = loans.filter(loan =>
-            !loan.returned &&
-            (loan.book.toLowerCase().includes(searchTerm) ||
-             loan.student.toLowerCase().includes(searchTerm))
-        );
+        today.setHours(0, 0, 0, 0); // Zera a hora para comparação de datas
 
         const overdueLoans = [];
 
-        filteredLoans.forEach(loan => {
-            const loanDate = parseDate(loan.loanDate);
-            if (!loanDate) return;
+        loans.forEach(loan => {
+            const dueDate = new Date(loan.due_date);
+            dueDate.setHours(0, 0, 0, 0);
 
-            const dueDate = new Date(loanDate.getTime() + 15 * 24 * 60 * 60 * 1000);
-            const diffTime = today - dueDate;
+            // Calcula a diferença em milissegundos
+            const diffTime = today.getTime() - dueDate.getTime();
+            // Converte para dias (1000ms * 60s * 60min * 24h)
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
             if (diffDays > 0) {
                 overdueLoans.push({
                     ...loan,
-                    dueDate,
                     diffDays
                 });
             }
         });
+
+        // Filtra os atrasados com base no termo de pesquisa
+        const filteredOverdueLoans = overdueLoans.filter(loan =>
+            loan.books.title.toLowerCase().includes(searchTerm) ||
+            loan.students.name.toLowerCase().includes(searchTerm) ||
+            loan.students.ra.toLowerCase().includes(searchTerm)
+        );
+
+        displayPendingLoans(filteredOverdueLoans);
+    }
+
+    // --- Funções de Exibição ---
+
+    function displayPendingLoans(overdueLoans) {
+        pendingLoansTableBody.innerHTML = '';
 
         if (overdueLoans.length === 0) {
             pendingLoansTableBody.innerHTML = '<tr><td colspan="6">Nenhum livro pendente encontrado.</td></tr>';
@@ -64,13 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         overdueLoans.forEach(loan => {
-            const formattedLoanDate = parseDate(loan.loanDate).toLocaleDateString('pt-BR');
-            const formattedDueDate = loan.dueDate.toLocaleDateString('pt-BR');
+            // Converte as datas para exibição
+            const formattedLoanDate = new Date(loan.loan_date).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+            const formattedDueDate = new Date(loan.due_date).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
 
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${loan.book}</td>
-                <td>${loan.student}</td>
+                <td>${loan.books.title}</td>
+                <td>${loan.students.name} (${loan.students.ra})</td>
                 <td>${formattedLoanDate}</td>
                 <td>${formattedDueDate}</td>
                 <td class="status-pending-loan">Atrasado</td>
@@ -79,4 +98,5 @@ document.addEventListener('DOMContentLoaded', () => {
             pendingLoansTableBody.appendChild(row);
         });
     }
+
 });
