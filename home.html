@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INÍCIO - ELIBOOK</title>
-
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Início - Livros Pendentes</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
-  <!-- ======== CABEÇALHO ======== -->
-  <header class="header">
-    <div class="header-left">
-      <div class="header-title-group">
-        <h1 class="header-title">Elibook</h1>
-        <p class="header-subtitle">Sala de Leitura</p>
-      </div>
-
-      <div class="header-search">
+ 
+    <header class="header">
+        <div class="header-title-group">
+            <h1 class="header-title">Elibook</h1>
+            <p class="header-subtitle">Sala de Leitura</p>
+          </div>          
+        <div class="header-search">
         <input type="text" id="loan-search" placeholder="Pesquisar...">
-      </div>
-    </div>
-
-    <nav class="header-nav">
-      <ul class="nav-menu">
-        <li><a href="home.html" class="active"><i class="fa-solid fa-house"></i> Início</a></li>
-        <li><a href="index.html"><i class="fa-solid fa-book"></i> Empréstimos</a></li>
-        <li><a href="manage-books.html"><i class="fa-solid fa-book-open"></i> Cadastrar Livro</a></li>
-        <li><a href="manage-students.html"><i class="fa-solid fa-user-graduate"></i> Cadastrar Aluno</a></li>
-      </ul>
-      <a href="#" id="logout-link" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
-    </nav>
-  </header>
-
-  <!-- ======== CONTEÚDO PRINCIPAL ======== -->
-  <main class="main-content">
-    <section id="pending-loans" class="card">
-      <h2 class="card-title">LIVROS PENDENTES</h2>
-      <p>Livros que já passaram da data de devolução.</p>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Livro</th>
-            <th>Aluno(a)</th>
-            <th>Data do Empréstimo</th>
-            <th>Data de Devolução</th>
-            <th>Status</th>
-            <th>Dias Atrasado</th>
-          </tr>
-        </thead>
-        <tbody id="pending-loans-table-body"></tbody>
-      </table>
-    </section>
-  </main>
-
-  <script src="app.js"></script>
-  <script src="home.js"></script>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="home.html"><i class="fa-regular fa-house"></i> Início</a></li>
+                <li><a href="index.html"><i class="fa-regular fa-book"></i> Empréstimos</a></li>
+                <li><a href="manage-books.html"><i class="fa-regular fa-book-open"></i> Cadastrar Livro</a></li>
+                <li><a href="manage-students.html"><i class="fa-regular fa-user"></i> Cadastrar Aluno</a></li>
+                <li><a href="#" id="logout-link" class="logout-button"><i class="fa-regular fa-right-from-bracket"></i> Sair</a></li>
+              </ul>              
+        </nav>
+        </header>
+ 
+    <main class="main-content">
+<section id="pending-loans" class="card">
+<h2 class="card-title">Livros Pendentes</h2>
+<p>Livros que já passaram da data de devolução.</p>
+<table class="data-table">
+<thead>
+<tr>
+<th>Livro</th>
+<th>Aluno(a )</th>
+<th>Data do Empréstimo</th>
+<th>Data de Devolução</th>
+<th>Status</th>
+<th>Dias Atrasado</th>
+</tr>
+</thead>
+<tbody id="pending-loans-table-body">
+<!-- Conteúdo será gerado via JavaScript -->
+</tbody>
+</table>
+</section>
+</main>
+ 
+    <script src="app.js"></script>
+    <script type="module" src="supabaseClient.js"></script>
+    <script type="module" src="home.js"></script>
 </body>
 </html>
