@@ -1,115 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CADASTRAR LIVRO - ELIBOOK</title>
-
-  <!-- Importar CSS principal -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Ícones (Font Awesome) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerenciar Livros - Biblioteca</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
-  <!-- ======== CABEÇALHO ======== -->
-  <header class="header">
-    <div class="header-left">
-      <div class="header-title-group">
-        <h1 class="header-title">Elibook</h1>
-        <p class="header-subtitle">Sala de Leitura</p>
-      </div>
-
-      <div class="header-search">
+ 
+    <header class="header">
+        <div class="header-title-group">
+            <h1 class="header-title">Elibook</h1>
+            <p class="header-subtitle">Sala de Leitura</p>
+          </div>          
+        <div class="header-search">
         <input type="text" id="loan-search" placeholder="Pesquisar...">
-      </div>
-    </div>
-
-    <nav class="header-nav">
-      <ul class="nav-menu">
-        <li><a href="home.html"><i class="fa-solid fa-house"></i> Início</a></li>
-        <li><a href="index.html"><i class="fa-solid fa-book"></i> Empréstimos</a></li>
-        <li><a href="manage-books.html" class="active"><i class="fa-solid fa-book-open"></i> Cadastrar Livro</a></li>
-        <li><a href="manage-students.html"><i class="fa-solid fa-user-graduate"></i> Cadastrar Aluno</a></li>
-      </ul>
-      <a href="#" id="logout-link" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
-    </nav>
-  </header>
-
-  <!-- ======== CONTEÚDO PRINCIPAL ======== -->
-  <main class="main-content">
-    <section class="card">
-      <h2 class="card-title">CADASTRO DE LIVROS</h2>
-      <form class="book-form">
-        <div class="form-group">
-          <label for="book-genre">GÊNERO:</label>
-          <input type="text" id="book-genre" required>
         </div>
-
-        <div class="form-group">
-          <label for="book-title">TÍTULO:</label>
-          <input type="text" id="book-title" required>
-        </div>
-
-        <div class="form-group">
-          <label for="book-author">AUTOR:</label>
-          <input type="text" id="book-author" required>
-        </div>
-
-        <div class="form-group">
-          <label for="book-publisher">EDITORA:</label>
-          <input type="text" id="book-publisher" required>
-        </div>
-
-        <div class="form-group">
-          <label for="book-quantity">QUANTIDADE:</label>
-          <input type="number" id="book-quantity" min="1" required>
-        </div>
-
-        <div class="form-group">
-          <label for="book-shelf">ESTANTE:</label>
-          <input type="text" id="book-shelf" required>
-        </div>
-
-        <div class="form-group">
-          <label for="book-rack">PRATELEIRA:</label>
-          <input type="text" id="book-rack" required>
-        </div>
-
-        <div class="form-group">
-          <label for="book-catalog">CATALOGAÇÃO:</label>
-          <input type="text" id="book-catalog" required>
-        </div>
-
-        <button type="submit" class="submit-button">CADASTRAR LIVRO</button>
-      </form>
-    </section>
-
-    <section class="card">
-      <h2 class="card-title">LIVROS CADASTRADOS</h2>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>GÊNERO</th>
-            <th>TÍTULO</th>
-            <th>AUTOR</th>
-            <th>EDITORA</th>
-            <th>QUANTIDADE</th>
-            <th>ESTANTE</th>
-            <th>PRATELEIRA</th>
-            <th>CATALOGAÇÃO</th>
-            <th>AÇÕES</th>
-          </tr>
-        </thead>
-        <tbody id="books-table-body"></tbody>
-      </table>
-    </section>
-  </main>
-
-  <!-- ======== SCRIPTS ======== -->
-  <script src="app.js"></script>
-  <script src="manage-books.js"></script>
-
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="home.html"><i class="fa-regular fa-house"></i> Início</a></li>
+                <li><a href="index.html"><i class="fa-regular fa-book"></i> Empréstimos</a></li>
+                <li><a href="manage-books.html"><i class="fa-regular fa-book-open"></i> Cadastrar Livro</a></li>
+                <li><a href="manage-students.html"><i class="fa-regular fa-user"></i> Cadastrar Aluno</a></li>
+                <li><a href="#" id="logout-link" class="logout-button"><i class="fa-regular fa-right-from-bracket"></i> Sair</a></li>
+              </ul>              
+        </nav>
+        </header>
+ 
+    <main class="main-content">
+<section class="card">
+<h2 class="card-title">Cadastro de Livros</h2>
+<form class="book-form">
+<div class="form-group">
+<label for="book-title">Nome do Livro:</label>
+<input type="text" id="book-title" name="book-title" required>
+</div>
+<div class="form-group">
+<label for="book-author">Autor:</label>
+<input type="text" id="book-author" name="book-author" required>
+</div>
+<div class="form-group">
+<label for="book-publisher">Editora:</label>
+<input type="text" id="book-publisher" name="book-publisher" required>
+</div>
+<div class="form-group">
+<label for="book-category">Categoria:</label>
+<input type="text" id="book-category" name="book-category" required>
+</div>
+<div class="form-group">
+<label for="book-id">ID:</label>
+<input type="text" id="book-id" name="book-id" required>
+</div>
+<button type="submit" class="submit-button">Cadastrar Livro</button>
+</form>
+</section>
+ 
+        <section class="card">
+<h2 class="card-title">Livros Cadastrados</h2>
+<table class="data-table">
+<thead>
+<tr>
+<th>ID</th>
+<th>Nome do Livro</th>
+<th>Autor</th>
+<th>Editora</th>
+<th>Categoria</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody id="books-table-body">
+<!-- Conteúdo será gerado via JavaScript -->
+</tbody>
+</table>
+</section>
+</main>
+ 
+    <!-- Modal de Edição de Livro -->
+<div id="edit-book-modal" class="modal">
+<div class="modal-content">
+<span class="close-button" id="close-book-modal">&times;</span>
+<h2 class="modal-title">Editar Livro</h2>
+<form id="edit-book-form">
+<div class="form-group">
+<label for="edit-book-title">Nome do Livro:</label>
+<input type="text" id="edit-book-title" name="edit-book-title" required>
+</div>
+<div class="form-group">
+<label for="edit-book-author">Autor:</label>
+<input type="text" id="edit-book-author" name="edit-book-author" required>
+</div>
+<div class="form-group">
+<label for="edit-book-publisher">Editora:</label>
+<input type="text" id="edit-book-publisher" name="edit-book-publisher" required>
+</div>
+<div class="form-group">
+<label for="edit-book-category">Categoria:</label>
+<input type="text" id="edit-book-category" name="edit-book-category" required>
+</div>
+<div class="form-group">
+<label for="edit-book-id">ID:</label>
+<input type="text" id="edit-book-id" name="edit-book-id" readonly required>
+</div>
+<input type="hidden" id="edit-book-index">
+<button type="submit" class="submit-button">Salvar Alterações</button>
+</form>
+</div>
+</div>
+ 
+    <script src="app.js"></script>
+    <script type="module" src="supabaseClient.js"></script>
+    <script type="module" src="manage-books.js"></script>
 </body>
 </html>
