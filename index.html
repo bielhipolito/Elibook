@@ -1,33 +1,86 @@
-<!-- ... (cabeçalho e meta tags) ... -->
-<link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabaseClient.js"></script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EMPRÉSTIMOS - ELIBOOK</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- ... (header e navegação ) ... -->
-    <main class="main-content">
-        <div class="loans-container">
-        <section id="cadastro" class="card">
-        <h2 class="card-title">Registrar Novo Empréstimo</h2>
+
+  <!-- ======== CABEÇALHO ======== -->
+  <header class="header">
+    <div class="header-left">
+      <div class="header-title-group">
+        <h1 class="header-title">Elibook</h1>
+        <p class="header-subtitle">Sala de Leitura</p>
+      </div>
+
+      <div class="header-search">
+        <input type="text" id="loan-search" placeholder="Pesquisar...">
+      </div>
+    </div>
+
+    <nav class="header-nav">
+      <ul class="nav-menu">
+        <li><a href="home.html"><i class="fa-solid fa-house"></i> Início</a></li>
+        <li><a href="index.html" class="active"><i class="fa-solid fa-book"></i> Empréstimos</a></li>
+        <li><a href="manage-books.html"><i class="fa-solid fa-book-open"></i> Cadastrar Livro</a></li>
+        <li><a href="manage-students.html"><i class="fa-solid fa-user-graduate"></i> Cadastrar Aluno</a></li>
+      </ul>
+      <a href="#" id="logout-link" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+    </nav>
+  </header>
+
+  <!-- ======== CONTEÚDO PRINCIPAL ======== -->
+  <main class="main-content">
+    <div class="loans-container">
+      <section id="cadastro" class="card">
+        <h2 class="card-title">REGISTRAR NOVO EMPRÉSTIMO</h2>
         <form class="loan-form">
-        <div class="form-group">
-        <label for="ra-aluno">RA do Aluno(a):</label>
-        <input type="text" id="ra-aluno" name="ra-aluno" required>
-        </div>
-        <div class="form-group">
-        <label for="id-livro">ID do Livro:</label>
-        <input type="text" id="id-livro" name="id-livro" required>
-        </div>
-        <div class="form-group">
-        <label for="due-date">Data de Devolução:</label>
-        <input type="date" id="due-date" name="due-date" required>
-        </div>
-        <button type="submit" class="submit-button">Registrar Empréstimo</button>
+          <div class="form-group">
+            <label for="nome-aluno">NOME DO ALUNO(A):</label>
+            <input type="text" id="nome-aluno" required>
+          </div>
+          <div class="form-group">
+            <label for="titulo-livro">TÍTULO DO LIVRO:</label>
+            <input type="text" id="titulo-livro" required>
+          </div>
+          <div class="form-group">
+            <label for="due-date">DATA DE DEVOLUÇÃO:</label>
+            <input type="date" id="due-date" required>
+          </div>
+          <button type="submit" class="submit-button">REGISTRAR EMPRÉSTIMO</button>
         </form>
-        </section>
-        <!-- ... (restante do código) ... -->
-    </main>
-    <script src="app.js"></script>
-    <script type="module" src="index.js"></script>
+      </section>
+
+      <section id="emprestimos" class="card">
+        <h2 class="card-title">EMPRÉSTIMOS ATIVOS</h2>
+        <div class="search-container">
+          <input type="text" id="loan-search-active" placeholder="Pesquisar por livro ou aluno...">
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Livro</th>
+              <th>Categoria</th>
+              <th>Aluno(a)</th>
+              <th>Data do Empréstimo</th>
+              <th>Data de Devolução</th>
+              <th>Status</th>
+              <th>Devolver</th>
+            </tr>
+          </thead>
+          <tbody id="loan-table-body"></tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
