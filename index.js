@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const { data: loans, error } = await query;
 
         if (error) {
-            console.error('Erro ao carregar empréstimos:', error);
-            loanTableBody.innerHTML = `<tr><td colspan="6">Erro ao carregar empréstimos.</td></tr>`;
+            console.error('Não há empréstimos:', error);
+            loanTableBody.innerHTML = `<tr><td colspan="6">Não há empréstimos.</td></tr>`;
             return;
         }
 
@@ -207,3 +207,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
