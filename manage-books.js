@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const { data: books, error } = await query;
 
         if (error) {
-            console.error('Erro ao carregar livros:', error);
+            console.error('Não há livros cadastrados:', error);
             booksTableBody.innerHTML = '<tr><td colspan="6">Erro ao carregar livros.</td></tr>';
             return;
         }
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         booksTableBody.innerHTML = '';
 
         if (books.length === 0) {
-            booksTableBody.innerHTML = '<tr><td colspan="6">Nenhum livro encontrado.</td></tr>';
+            booksTableBody.innerHTML = '<tr><td colspan="6">Nenhum livro cadastrado.</td></tr>';
             return;
         }
 
@@ -263,3 +263,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
