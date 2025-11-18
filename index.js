@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const today = new Date().toISOString().split('T')[0];
 
         if (loans.length === 0) {
-            loanTableBody.innerHTML = `<tr><td colspan="7">Nenhum empréstimo ativo encontrado.</td></tr>`;
+            loanTableBody.innerHTML = `<tr><td colspan="7">Nenhum registro de empréstimo ativo.</td></tr>`;
             return;
         }
 
@@ -207,4 +207,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
