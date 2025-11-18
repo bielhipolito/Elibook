@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (error) {
             console.error('Não há livros cadastrados:', error);
-            booksTableBody.innerHTML = '<tr><td colspan="6">Erro ao carregar livros.</td></tr>';
+            booksTableBody.innerHTML = '<tr><td colspan="6">Não há livros cadastrados.</td></tr>';
             return;
         }
 
@@ -263,4 +263,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
