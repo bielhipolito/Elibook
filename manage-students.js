@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .select('*');
 
         if (error) {
-            console.error('Erro ao carregar alunos:', error);
-            studentsTableBody.innerHTML = '<tr><td colspan="5">Erro ao carregar alunos.</td></tr>';
+            console.error('Não há registro de alunos:', error);
+            studentsTableBody.innerHTML = '<tr><td colspan="5">Não há registro de alunos.</td></tr>';
             return;
         }
 
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .eq('returned', false);
 
         if (loansError) {
-            console.error('Erro ao buscar empréstimos ativos:', loansError);
+            console.error('Não há empréstimos ativos:', loansError);
             // Continua a exibição, mas sem status de pendência
         }
 
@@ -301,3 +301,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
