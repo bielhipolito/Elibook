@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const { data: loans, error } = await query;
 
         if (error) {
-            console.error('Erro ao carregar empréstimos pendentes:', error);
-            pendingLoansTableBody.innerHTML = '<tr><td colspan="6">Erro ao carregar empréstimos.</td></tr>';
+            console.error('Não há um empréstimo pendente:', error);
+            pendingLoansTableBody.innerHTML = '<tr><td colspan="6">Não há empréstimos.</td></tr>';
             return;
         }
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pendingLoansTableBody.innerHTML = '';
 
         if (overdueLoans.length === 0) {
-            pendingLoansTableBody.innerHTML = '<tr><td colspan="6">Nenhum livro pendente encontrado.</td></tr>';
+            pendingLoansTableBody.innerHTML = '<tr><td colspan="6">Não há livro pendente encontrado.</td></tr>';
             return;
         }
 
@@ -100,3 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
