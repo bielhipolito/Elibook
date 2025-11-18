@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (error) {
             console.error('Não há um empréstimo pendente:', error);
-            pendingLoansTableBody.innerHTML = '<tr><td colspan="6">Não há empréstimos.</td></tr>';
+            pendingLoansTableBody.innerHTML = '<tr><td colspan="6">Não há um empréstimo pendente.</td></tr>';
             return;
         }
 
@@ -100,4 +100,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
