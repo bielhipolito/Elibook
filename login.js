@@ -5,24 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para alternar visibilidade da senha
 
     function togglePasswordVisibility(inputId, toggleId) {
-
         const input = document.getElementById(inputId);
-
         const toggle = document.getElementById(toggleId);
-
         toggle.addEventListener('click', () => {
-
             const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-
             input.setAttribute('type', type);
-
-            toggle.textContent = type === 'password' ? '👁️' : '🙈';
-
+            toggle.innerHTML = type === 'password' ? '<i class="fa-regular fa-eye"></i>' : '<i class="fa-regular fa-eye-slash"></i>';
         });
-
     }
- 
-    togglePasswordVisibility('password', 'toggle-password');
+    
+    // Chame para o login:
+    togglePasswordVisibility('login-password', 'toggle-password-login');    
  
     loginForm.addEventListener('submit', (event) => {
 
@@ -51,3 +44,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
