@@ -1,20 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const registerForm = document.querySelector('.register-form');
-    const passwordInput = document.getElementById('new-password');
-    const confirmPasswordInput = document.getElementById('confirm-password');
-    const passwordMatchMessage = document.getElementById('password-match-message');
- 
-    // Função para alternar visibilidade da senha
     function togglePasswordVisibility(inputId, toggleId) {
         const input = document.getElementById(inputId);
         const toggle = document.getElementById(toggleId);
         toggle.addEventListener('click', () => {
             const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
             input.setAttribute('type', type);
-            toggle.textContent = type === 'password' ? '👁️' : '🙈';
+    
+            // Ícones contornados para olho aberto e riscado
+            toggle.innerHTML = type === 'password' 
+                ? '<i class="fa-regular fa-eye"></i>'      // olho contornado aberto
+                : '<i class="fa-regular fa-eye-slash"></i>'; // olho contornado riscado
         });
-    }
- 
+    }    
     togglePasswordVisibility('new-password', 'toggle-password');
     togglePasswordVisibility('confirm-password', 'toggle-confirm-password');
     // Função para validar senhas em tempo real
