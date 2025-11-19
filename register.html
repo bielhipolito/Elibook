@@ -11,34 +11,29 @@
     <div class="login-container">
         <h1 class="login-title">Cadastre-se</h1>
         <form class="register-form">
-        <div class="form-group">
-        <label for="new-username">Nome de Usuário:</label>
-        <input type="text" id="new-username" name="new-username" required>
-        </div>
-        <div class="form-group">
-        <label for="new-password">Senha:</label>
-        <div class="password-container">
-        <input type="password" id="new-password" name="new-password" required>
-        <div class="header-search">
-        <input type="text" id="loan-search" placeholder="A senha deve ter 6 caracteres, e pelo menos 1 símbolo">
-        </div>
-        <span class="password-toggle-icon" id="toggle-password">👁️</span>
-        </div>
-        </div>
-        <div class="form-group">
-        <label for="confirm-password">Confirmar Senha:</label>
-        <div class="password-container">
-        <input type="password" id="confirm-password" name="confirm-password" required>
-        <span class="password-toggle-icon" id="toggle-confirm-password">👁️</span>
-        </div>
-        <span id="password-match-message" class="password-validation-message"></span>
-        </div>
-        <button type="submit" class="submit-button">Cadastrar</button>
-        </form>
+            <div class="form-group">
+              <label for="new-username">Nome de Usuário:</label>
+              <input type="text" id="new-username" name="new-username" required>
+            </div>
+            <div class="form-group">
+              <label for="new-password">Senha:</label>
+              <div class="password-container">
+                <input type="password" id="new-password" name="new-password" required>
+                <span class="password-toggle-icon" id="toggle-password"><i class="fa-regular fa-eye"></i></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Confirmar Senha:</label>
+              <div class="password-container">
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <span class="password-toggle-icon" id="toggle-confirm-password"><i class="fa-regular fa-eye"></i></span>
+              </div>
+              <span id="password-match-message" class="password-validation-message"></span>
+            </div>
+            <button type="submit" class="submit-button">Cadastrar</button>
+          </form>          
         <p class="login-link">Já tem uma conta? <a href="login.html">Faça login</a></p>
         </div>
     <script src="register.js"></script>
 </body>
 </html>
-
-
